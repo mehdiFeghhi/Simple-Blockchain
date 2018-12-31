@@ -1,0 +1,64 @@
+import pickle
+
+
+class Transaction:
+    def __init__(self,sender,reciver,amount):
+        self.sen=sender
+        self.riv=reciver
+        self.amo=str(amount)
+    def __str__(self):
+        return  self.sen + self.rec + self.amo
+    
+    
+    
+    
+    
+    
+class BLock:
+        def __init__(self,index=0,timestamp,priveusehash,Transaction):
+            self.a=Transaction
+            self.ind=index
+            self.enti=timestamp
+            self.prhash=priveusehash
+            self.hash=hash(self.a+self.ind+self.enti+self.prhash)
+        def hashBlock(self):
+            return self.hash
+        
+        
+        def hash(self):
+            pass
+        
+        
+        
+        
+class Blockchain:
+    
+    def __init__(self,chain):
+         self.a=None
+         self.chain=chain
+         
+         
+    def addBlock(self,Transaction):
+        self.a=Block"not complete"
+        self.chain=add(chain,self.a)
+        def add(lst,y):
+            if lst ==[]:
+                lst=lst + [str({"mehdi":y})]
+                return lst
+            dict=lst[-1]
+            p =[[lst[-1]]+[str({ "mehdi":y})]]
+            lst = lst + p
+            return lst
+   
+               
+    def save(self,address):
+        outfile=open(address,"wb")
+        pickle.dump(outfile,self.chain)
+        outfile.close()
+    def load(self,address):
+        infile=open(address,"rb")
+        di=pickle.load(infile)
+        infile.close()
+        self.chain=di
+    def validationCheck():
+        pass
