@@ -49,7 +49,7 @@ class Blockchain:
         else:
               privushash=1234
         p = Block(index+1,timestep,privushash,Transaction)
-        self.chain = self.chain + [p]
+        self.chain =  [p]
    
                
     def save(self,address):
@@ -144,5 +144,5 @@ def project3():
         elif common=="6":
             break
         else :
-            prin("you are chose number between one till six") 
+            print("you are chose number between one till six") 
 project3()
