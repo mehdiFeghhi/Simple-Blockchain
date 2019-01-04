@@ -13,7 +13,7 @@ class Transaction:
         self.rec=reciver
         self.amo=str(amount)
     def __str__(self):
-        return  self.sen + self.rec + self.amo
+        return  self.sen +"_"+self.rec +":"+ self.amo
     
     
     
@@ -31,8 +31,8 @@ class Block:
             self.hash=hash(self.all)
         def hashBlock(self):
             return self.hash
-        def __str__():
-            return str(self.tra)+" "+str(self.ind)+" "+str(self.time)+" "+str(self.perhas)
+        def __str__(self):
+            return str(self.tra)+" "+str(self.ind)+"/"+str(self.time)+"/"+str(self.perhash)
         
                 
 class Blockchain:
@@ -135,6 +135,7 @@ def project3():
 
         elif int(common) ==6:
             break
+
 project3()
 
 
