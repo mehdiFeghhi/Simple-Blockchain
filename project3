@@ -1,0 +1,141 @@
+import pickle
+from random import shuffle
+import datetime
+
+
+
+
+
+
+class Transaction:
+    def __init__(self,sender,reciver,amount):
+        self.sen=sender
+        self.rec=reciver
+        self.amo=str(amount)
+    def __str__(self):
+        return  self.sen + self.rec + self.amo
+    
+    
+    
+    
+    
+    
+class Block:
+        def __init__(self,index,timestamp,priveusehash,Transaction):
+
+            self.tra=Transaction
+            self.ind=index
+            self.time=timestamp
+            self.perhash=priveusehash
+            self.all= str(self.tra)+str(self.ind)+str(self.time)+str(self.perhash)
+            self.hash=hash(self.all)
+        def hashBlock(self):
+            return self.hash
+        def __str__():
+            return str(self.tra)+" "+str(self.ind)+" "+str(self.time)+" "+str(self.perhas)
+        
+                
+class Blockchain:
+    
+    def __init__(self):
+         
+         self.chain=[]
+          
+    def addBlock(self,Transaction):
+        index=len(self.chain)
+        timestep=datetime.datetime.now().time()
+        if len(self.chain)>0:
+              privushash=self.chain[-1].hash
+        else:
+              privushash=1234
+        p = Block(index+1,timestep,privushash,Transaction)
+        self.chain = self.chain + [p]
+   
+               
+    def save(self,address):
+        self.load(address)
+        outfile=open(address,"wb")
+        pickle.dump(self.chain,outfile)
+        outfile.close()
+    def load(self,address):
+        try:
+          infile=open(address,"rb")
+        except:
+            infile=open(address,"wb")
+            pickle.dump([],infile)
+            infile.close()
+            infile=open(address,"rb")
+            
+        di=pickle.load(infile)
+        infile.close()
+        self.chain=di+self.chain
+    def validationCheck():
+           return self.chain[-1].hash == self.chain[-2].perhash
+        
+        
+        
+        
+
+ 
+def hash(x):
+           
+    table = [i for i in range(0,256)] 
+    shuffle(table)
+    return hash8(x,table)
+
+def hash8(massage,table):
+          hash = len(massage) % 256
+          for i in massage:
+                hash = table[hash^ord(i)]
+          return hash
+                                     
+def project3():
+  
+   while True:
+        common=input("what do you want? \n 1.add new transection \n 2.check the validity \n 3.show the current chain \n 4.save \n 5.load \n 6.exit \n  " )
+        if int(common)==1:
+            sen=input("Enter sender ")
+            rec=input("Enter reciver ")
+            amo=input("Enter amoumt ")
+            transection=Transaction(sen,rec,amo)
+            try:
+               j.addBlock(transection)
+            except:
+                j=Blockchain()
+                j.addBlock(transection)
+            print("okey activity is done")
+        elif int(common)==2:
+                try:
+                  address=input("Enter your address you save Blackchain in it.")
+                  blockchain=Blockchain()
+                  blockchain.load(address)
+                  if blockchain.validationCheck()==True:
+                      print("your blockchain is healthy")
+                  else:
+                      raise "your blockchain is not healtht"
+                except:
+                    print("your address is not correct")
+                  
+        elif int(common)==3:
+          try:
+            for i in j.chain:
+                print (i)
+          except:
+                print("your are not load your blockchain")
+        elif int(common)==4:
+            address=input(" Enter your address")
+            try :
+              j.save(address)
+            except:
+                print("you can't save None")
+        elif int(common)==5:
+            address=input(" Enter your address")
+            j=Blockchain()
+            j.load(address)
+
+        elif int(common) ==6:
+            break
+project3()
+
+
+    
