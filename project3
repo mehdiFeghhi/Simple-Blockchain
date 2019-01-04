@@ -69,7 +69,7 @@ class Blockchain:
         di=pickle.load(infile)
         infile.close()
         self.chain=di+self.chain
-    def validationCheck():
+    def validationCheck(self):
            return self.chain[-1].hash == self.chain[-2].perhash
         
         
@@ -110,11 +110,19 @@ def project3():
                   blockchain=Blockchain()
                   blockchain.load(address)
                   if blockchain.validationCheck()==True:
-                      print("your blockchain is healthy")
+                    print("your blockch is healthy")
                   else:
-                      raise "your blockchain is not healtht"
+                    print("one of your block is not healthy.Do you want to clear all blockchain")
+                    c=input("chose number: 1.yes or 2.NO")
+                    if int(c)==1:
+                        outfile=open(address,"wb")
+                        pickle.dump([],outfile)
+                        outfile.close()
                 except:
-                    print("your address is not correct")
+                    print("your address is not correct")      
+                
+               
+                
                   
         elif int(common)==3:
           try:
