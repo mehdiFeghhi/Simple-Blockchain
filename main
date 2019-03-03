@@ -2,7 +2,7 @@ import pickle
 
 
 class Transaction:
-    def __init__(self,sender,reciver,amount):
+    def __init__(self,sender,reciver,amount):		"mehdi is best boy"
         self.sen=sender
         self.riv=reciver
         self.amo=str(amount)
