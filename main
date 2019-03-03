@@ -2,12 +2,12 @@ import pickle
 
 
 class Transaction:
-    def __init__(self,sender,reciver,amount):		"mehdi is best boy"
+    def __init__(self,sender,reciver,amount):		#mehdi is best boy
         self.sen=sender
         self.riv=reciver
         self.amo=str(amount)
     def __str__(self):
-        return  self.sen + self.rec + self.amo
+        return  self.sen + self.rec + self.amo     #ramin is bad boy
     
     
     
